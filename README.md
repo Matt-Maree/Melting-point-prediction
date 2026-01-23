@@ -1,12 +1,21 @@
 # Melting Point Prediction with Machine Learning
 
-This repository contains a machine-learning pipeline for predicting the melting points of organic molecules from molecular structure.  
-The project combines **RDKit-based molecular featurization** with multiple regression models and an ensemble stacking approach.
+This repository contains a reproducible **cheminformatics and machine-learning pipeline** for predicting the melting points of organic molecules from molecular structure.  
+The project combines **RDKit-based molecular featurisation** with multiple regression models and a stacked ensemble.
 
-The focus is on:
-- chemically motivated data cleaning and feature engineering
-- robust model selection using cross-validation
-- evaluation on a strictly held-out test set
+It is designed to demonstrate **best practices for chemical data modelling**, with direct relevance to **computer-aided drug discovery (CADD)** and molecular property prediction workflows.
+
+---
+
+## Project focus
+
+The emphasis of this project is on:
+
+- chemically motivated data cleaning and molecule filtering
+- robust feature engineering using RDKit descriptors and fingerprints
+- careful model selection using cross-validation
+- strict avoidance of data leakage
+- evaluation on a **single, held-out final test set**
 
 ---
 
@@ -15,17 +24,18 @@ The focus is on:
 ```text
 melting-point-ml/
 ├── data/
-│   ├── raw/        # Original, untouched CSV files
-│   └── processed/  # Final datasets used for modelling
+│   ├── raw/            # Original, untouched CSV files (not tracked)
+│   └── processed/      # Final datasets used for modelling
 ├── notebooks/
 │   ├── 01_data_loading.ipynb
 │   ├── 02_EDA.ipynb
 │   ├── 03_base_model_optimization.ipynb
 │   └── 04_ensemble_stacking.ipynb
 ├── reports/
-│   └── best_params/  # Best hyperparameters from CV (JSON)
+│   ├── best_params/    # Best hyperparameters from CV (JSON)
+│   └── figures/        # Optional saved plots
 ├── src/
-│   └── mp/           # Core Python package
+│   └── mp/             # Core Python package (feature engineering + models)
 ├── pyproject.toml
 ├── requirements.txt
 └── README.md
@@ -63,7 +73,13 @@ Ensure the RDKit-enabled kernel is selected before running `01_data_loading.ipyn
    pip install -e .
 ```
 
-### 2. Download dataset csv files and save to data/raw
+### 2. Prepare Data
+
+```
+data/raw/
+├── BradleyMeltingPointDataset.csv
+└── BradleyDoublePlusGoodMeltingPointDataset.csv
+```
 
 ### 3. Notebook execution order
     01_data_loading.ipynb (requires RDKit)
@@ -183,6 +199,18 @@ OOF stacking ensures the meta-model is trained only on predictions generated fro
 - Ensemble MAE on the final test set
 - Baseline MAE for each individual base model
 - Exported ensemble metrics and stacker weights in `reports/`
+
+---
+
+## Reproducibility and ML good practice 
+
+- Random seeds fixed throughout
+- Feature engineering performed inside cross-validation folds
+- Final test set held out once and never used during:
+   - feature selection
+   - hyperparameter tuning
+   - ensemble training
+- Out-of-fold predictions used for stacking
 
 ---
 
