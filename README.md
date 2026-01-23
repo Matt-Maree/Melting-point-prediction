@@ -61,7 +61,7 @@ Ensure the RDKit-enabled kernel is selected before running `01_data_loading.ipyn
    ```bash
    pip install -r requirements.txt
    pip install -e .
-
+```
 ### 2. Notebook execution order
     01_data_loading.ipynb (requires RDKit)
     02_EDA.ipynb
