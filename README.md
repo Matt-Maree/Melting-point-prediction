@@ -62,7 +62,10 @@ Ensure the RDKit-enabled kernel is selected before running `01_data_loading.ipyn
    pip install -r requirements.txt
    pip install -e .
 ```
-### 2. Notebook execution order
+
+### 2. Download dataset csv files and save to data/raw
+
+### 3. Notebook execution order
     01_data_loading.ipynb (requires RDKit)
     02_EDA.ipynb
     03_base_model_optimization.ipynb
