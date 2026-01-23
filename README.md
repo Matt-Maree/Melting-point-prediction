@@ -25,7 +25,7 @@ The emphasis of this project is on:
 melting-point-ml/
 ├── data/
 │   ├── raw/            # Original, untouched CSV files (not tracked)
-│   └── processed/      # Final datasets used for modelling
+│   └── processed/      # Final datasets used for modelling (not tracked)
 ├── notebooks/
 │   ├── 01_data_loading.ipynb
 │   ├── 02_EDA.ipynb
@@ -74,6 +74,8 @@ Ensure the RDKit-enabled kernel is selected before running `01_data_loading.ipyn
 ```
 
 ### 2. Prepare Data
+
+Download the raw datasets and place them in:
 
 ```
 data/raw/
