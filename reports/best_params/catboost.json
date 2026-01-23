@@ -1,0 +1,15 @@
+{
+  "bagging_temperature": 0.6383069188267396,
+  "corr_threshold": 0.9175011514451273,
+  "depth": 8,
+  "grow_policy": "Depthwise",
+  "l2_leaf_reg": 15.68560007643132,
+  "leaf_estimation_iterations": 2,
+  "learning_rate": 0.04857988054750037,
+  "max_fp_freq": 0.9600696854233198,
+  "min_data_in_leaf": 7,
+  "min_fp_freq": 0.015955903810099488,
+  "n_estimators": 1585,
+  "random_strength": 0.54153174400774,
+  "rsm": 0.6263130931119643
+}

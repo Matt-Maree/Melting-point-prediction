@@ -1,0 +1,15 @@
+numpy
+pandas
+scipy
+scikit-learn
+
+matplotlib
+seaborn
+
+catboost
+xgboost
+
+tensorflow
+
+joblib
+tqdm

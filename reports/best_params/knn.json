@@ -1,0 +1,10 @@
+{
+  "algorithm": "auto",
+  "corr_threshold": 0.9372282766561744,
+  "leaf_size": 63,
+  "max_fp_freq": 0.9158754422770139,
+  "min_fp_freq": 0.010253079192310935,
+  "n_neighbors": 7,
+  "p": 1,
+  "weights": "distance"
+}

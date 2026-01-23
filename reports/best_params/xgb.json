@@ -1,0 +1,17 @@
+{
+  "colsample_bylevel": 0.968161366897279,
+  "colsample_bytree": 0.818124913892848,
+  "corr_threshold": 0.9156416716941542,
+  "gamma": 0.12400936357335154,
+  "learning_rate": 0.07078671076075818,
+  "max_bin": 256,
+  "max_depth": 8,
+  "max_fp_freq": 0.8943414270169826,
+  "min_child_weight": 8,
+  "min_fp_freq": 0.010783726533512925,
+  "n_estimators": 1920,
+  "reg_alpha": 0.8902741654560742,
+  "reg_lambda": 8.643915649744262,
+  "subsample": 0.8635206413462179,
+  "tree_method": "hist"
+}
