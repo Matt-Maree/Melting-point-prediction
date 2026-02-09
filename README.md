@@ -16,6 +16,7 @@ The emphasis of this project is on:
 - careful model selection using cross-validation
 - strict avoidance of data leakage
 - evaluation on a **single, held-out final test set**
+- transparent post-hoc model evaluation and error analysis
 
 ---
 
@@ -31,11 +32,14 @@ melting-point-ml/
 │   ├── 02_EDA.ipynb
 │   ├── 03_base_model_optimization.ipynb
 │   └── 04_ensemble_stacking.ipynb
+|   └── 05_model_evaluation_and_error_analysis.ipynb
 ├── reports/
-│   ├── best_params/    # Best hyperparameters from CV (JSON)
-│   └── figures/        # Optional saved plots
+│   ├── best_params/          # Best hyperparameters from CV (JSON)
+│   └── figures/              # Optional saved plots
+|   └── feature_importance/   
+|   └── predictions/          # Final test-set predictions
 ├── src/
-│   └── mp/             # Core Python package (feature engineering + models)
+│   └── mp/                   # Core Python package (feature engineering + models)
 ├── pyproject.toml
 ├── requirements.txt
 └── README.md
@@ -88,6 +92,7 @@ data/raw/
     02_EDA.ipynb
     03_base_model_optimization.ipynb
     04_ensemble_stacking.ipynb
+    05_model_evaluation_and_error_analysis
 
 **Metric**: Mean Absolute Error (MAE, °C)
 **Data split**: 5% final test set held out once and never used during model selection or stacking.
@@ -200,7 +205,29 @@ OOF stacking ensures the meta-model is trained only on predictions generated fro
 
 - Ensemble MAE on the final test set
 - Baseline MAE for each individual base model
-- Exported ensemble metrics and stacker weights in `reports/`
+- Final predictions, ensemble metrics, and stacker weights exported to `reports/`
+
+---
+
+## Model evaluation and error analysis
+
+### `05_model_evaluation_and_error_analysis`
+
+This notebook performs a detailed post-hoc evaluation of the final models using only saved artefacts and the held-out test set.
+
+The goal is to assess model reliability and limitations, rather than to perform further optimisation.
+
+**Analyses include:**
+
+- parity plot for the stacked ensemble
+- residual distribution comparison (ensemble vs CatBoost)
+- absolute error distributions across all models
+- residuals as a function of predicted melting point
+- inspection of worst-case prediction errors
+- analysis of ensemble model contributions
+- CatBoost feature importance for interpretability
+
+Together, these diagnostics provide a transparent and chemically informed assessment of model behaviour beyond aggregate error metrics.
 
 ---
 
