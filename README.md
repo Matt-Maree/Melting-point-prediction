@@ -25,7 +25,7 @@ The emphasis of this project is on:
 ```text
 melting-point-ml/
 ├── data/
-│   ├── raw/            # Original, untouched CSV files (not tracked)
+│   ├── raw/            # Original, untouched CSV files
 │   └── processed/      # Final datasets used for modelling (not tracked)
 ├── notebooks/
 │   ├── 01_data_loading.ipynb
@@ -79,7 +79,7 @@ Ensure the RDKit-enabled kernel is selected before running `01_data_loading.ipyn
 
 ### 2. Prepare Data
 
-Download the raw datasets and place them in:
+The raw datasets are included in the repository and are expected to be located in:
 
 ```
 data/raw/
